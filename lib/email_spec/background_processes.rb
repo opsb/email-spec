@@ -26,12 +26,12 @@ module EmailSpec
       # Later versions of DelayedJob switch from using Delayed::Job to Delayed::Worker
       # Support both versions for those who haven't upgraded yet
       def work_off_queue
-        if defined?(Delayed::Job)
-          Delayed::Job.work_off
-        else
+        if defined?(Delayed::Worker)
           Delayed::Worker.send :public, :work_off
           worker = Delayed::Worker.new(:max_priority => nil, :min_priority => nil, :quiet => true)
           worker.work_off
+        else
+          Delayed::Job.work_off
         end
       end
     end
