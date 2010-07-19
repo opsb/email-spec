@@ -5,7 +5,7 @@ require 'spec/rake/spectask'
 begin
   require 'jeweler'
   Jeweler::Tasks.new do |s|
-    s.name         = "email_spec"
+    s.name         = "opsb-email_spec"
     s.platform     = Gem::Platform::RUBY
     s.authors      = ['Ben Mabey', 'Aaron Gibralter', 'Mischa Fierer']
     s.email        = "ben@benmabey.com"
